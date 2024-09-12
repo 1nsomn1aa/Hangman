@@ -12,14 +12,36 @@ class Hangman:
 
     def print_current_game_state(self):
         """
-        Iterate through the random word 
-        Display underscores for letters
-        Replace underscores with correctly guessed letters
+        Iterate through the random word
+        Display underscores for incorrect guesses
+        Replace underscores with letters for correct guesses
         """
         for letter in self.word:
             if letter in self.guesses:
                 print(letter)
             else:
                 print('_')
+
+    def players_guess(self, guess):
+        """
+        Update the guess string 
+        Lower the remaining turns count if guess is incorrect
+        """
+        self.guesses += guess
+        if guess not in self.word
+            self.turns -= 1
+            print(f"Incorrect. You have, {self.turns} guesses left")
+
+    def check_for_victory(self):
+        """
+        Check if all letters have been guessed correctly
+        """
+        return all(letter in self.guesses for letter in self.word)
+
+    def check_for_defeat(self):
+        """
+        Check if player ran out of attempts
+        """
+        return self.turns == 0
 
 
