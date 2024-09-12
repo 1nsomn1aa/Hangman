@@ -28,7 +28,7 @@ class Hangman:
         Lower the remaining turns count if guess is incorrect
         """
         self.guesses += guess
-        if guess not in self.word
+        if guess not in self.word:
             self.turns -= 1
             print(f"Incorrect. You have, {self.turns} guesses left")
 
@@ -44,4 +44,19 @@ class Hangman:
         """
         return self.turns == 0
 
+def play_game():
+    """
+    Main game function
+    """
+    game = Hangman()
 
+    while True:
+        failed = game.print_current_game_state()
+
+        if failed == 0:
+            print("You win!")
+        
+        if game.check_for_defeat():
+            print(f"You lost! The word was {game.word}")
+
+play_game()
