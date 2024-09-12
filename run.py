@@ -61,4 +61,27 @@ def play_game():
             print(f"You lost! The word was {game.word}")
             break
 
-play_game()
+        guess = input("Guess a letter: ")
+
+        # Check if the input is a single character
+        if len(guess) != 1 or not guess.isalpha():
+            print("Please enter a single letter.")
+            continue
+
+        # Check if the input is a letter
+        if guess.isalpha() == False:
+            print("Please enter a letter, symbols and numbers are not allowed.")
+            continue
+
+        # Check if the user already tried guessing the letter
+        if guess in game.guesses:
+            print("You have already guessed that letter. Try again.")
+            continue
+
+        game.players_guess(guess)
+
+        if game.check_for_victory():
+            print("You win!")
+            break
+
+    play_game()
