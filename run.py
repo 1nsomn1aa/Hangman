@@ -55,8 +55,10 @@ def play_game():
 
         if failed == 0:
             print("You win!")
+            break
         
         if game.check_for_defeat():
             print(f"You lost! The word was {game.word}")
+            break
 
 play_game()
