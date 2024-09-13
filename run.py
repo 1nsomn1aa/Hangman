@@ -62,7 +62,12 @@ def play_game():
             print(f"You lost! The word was {game.word}")
             break
 
-        guess = input("Guess a letter: \n")
+        guess = input("Guess a letter (or type 'exit' to terminate the game): \n")
+
+        # Check if player wants to quit
+        if guess.lower() == "exit":
+            print("Game terminated. The word was:", game.word)
+            break
 
         # Check if the input is a single character
         if len(guess) != 1:
