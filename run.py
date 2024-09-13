@@ -5,7 +5,7 @@ class Hangman:
         """
         Create a class for the basic game settings and set the random word choice.
         """
-        self.words = ["python", "learning", "hangman", "coding", "computer", "development"]
+        self.words = ["python", "learning", "hangman", "coding", "computer", "development", "programming", "software"]
         self.word = random.choice(self.words)
         self.guesses = ""
         self.turns = 10
