@@ -1,11 +1,15 @@
 import random
 
+
 class Hangman:
     def __init__(self):
         """
-        Create a class for the basic game settings and set the random word choice.
+        Create a class for the basic game settings
+        and
+        Set the random word choice.
         """
-        self.words = ["python", "learning", "hangman", "coding", "computer", "development", "programming", "software"]
+        self.words = ["python", "learning", "hangman", "coding", "computer",
+                      "development", "programming", "software"]
         self.word = random.choice(self.words)
         self.guesses = ""
         self.turns = 10
@@ -25,7 +29,7 @@ class Hangman:
 
     def players_guess(self, guess):
         """
-        Update the guess string 
+        Update the guess string
         Lower the remaining turns count if guess is incorrect
         """
         self.guesses += guess
@@ -45,6 +49,7 @@ class Hangman:
         """
         return self.turns == 0
 
+
 def play_game():
     """
     Main game function
@@ -57,12 +62,12 @@ def play_game():
         if failed == 0:
             print("You win!")
             break
-        
+
         if game.check_for_defeat():
             print(f"You lost! The word was {game.word}")
             break
 
-        guess = input("Guess a letter (or type 'exit' to terminate the game): \n")
+        guess = input("Guess a letter (or type 'exit' to quit the game): \n")
 
         # Check if player wants to quit
         if guess.lower() == "exit":
@@ -75,8 +80,8 @@ def play_game():
             continue
 
         # Check if the input is a letter
-        if guess.isalpha() == False:
-            print("Please enter a letter, symbols and numbers are not allowed.")
+        if guess.isalpha() is False:
+            print("Please enter a letter, symbols and numbers are forbidden.")
             continue
 
         # Check if the user already tried guessing the letter
@@ -87,7 +92,8 @@ def play_game():
         game.players_guess(guess)
 
         if game.check_for_victory():
-            print("You win!")
+            print(f"You win! The word was {game.word}.")
             break
+
 
 play_game()
