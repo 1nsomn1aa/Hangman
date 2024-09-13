@@ -18,9 +18,10 @@ class Hangman:
         """
         for letter in self.word:
             if letter in self.guesses:
-                print(letter)
+                print(letter, end=" ")
             else:
-                print('_')
+                print('_', end=" ")
+        print()
 
     def players_guess(self, guess):
         """
@@ -61,10 +62,10 @@ def play_game():
             print(f"You lost! The word was {game.word}")
             break
 
-        guess = input("Guess a letter: ")
+        guess = input("Guess a letter: \n")
 
         # Check if the input is a single character
-        if len(guess) != 1 or not guess.isalpha():
+        if len(guess) != 1:
             print("Please enter a single letter.")
             continue
 
@@ -84,4 +85,4 @@ def play_game():
             print("You win!")
             break
 
-    play_game()
+play_game()
